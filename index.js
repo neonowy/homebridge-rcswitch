@@ -1,7 +1,6 @@
 const rc = require("rcswitch");
 
 const DEFAULT_WIRINGPI_PIN = 0;
-const DEFAULT_RCSWITCH_PROTOCOL = 1;
 const DEFAULT_RCSWITCH_PULSE_LENGTH = 350;
 
 let Service;
@@ -12,7 +11,6 @@ function RcSwitchAccessory(log, config) {
 
   this.name = config.name;
   this.pin = config.pin || DEFAULT_WIRINGPI_PIN;
-  this.protocol = config.protocol || DEFAULT_RCSWITCH_PROTOCOL;
   this.pulseLength = config.pulseLength || DEFAULT_RCSWITCH_PULSE_LENGTH;
   this.codeOn = config.codeOn;
   this.codeOff = config.codeOff;
@@ -34,7 +32,7 @@ function RcSwitchAccessory(log, config) {
     .setCharacteristic(Characteristic.Model, "v1.0.0")
     .setCharacteristic(
       Characteristic.SerialNumber,
-      `${this.pin}::${this.protocol}::${this.pulseLength}::${this.codeOn ||
+      `${this.pin}::${this.pulseLength}::${this.codeOn ||
         this.triStateCodeOn}::${this.codeOff || this.triStateCodeOff}`
     );
 }
@@ -47,7 +45,6 @@ RcSwitchAccessory.prototype.setState = (newState, callback) => {
   this.state = newState;
 
   rc.enableTransmit(this.pin);
-  rc.setProtocol(this.protocol);
   rc.setPulseLength(this.pulseLength);
 
   const sendCode = code => rc.send(code);

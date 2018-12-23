@@ -57,6 +57,7 @@ RcSwitchAccessory.prototype.setState = function(newState, callback) {
       sendTriStateCode(this.triStateCodeOn);
     } else {
       this.log("Error: Missing ON code.");
+      return callback(new Error("Error: Missing ON code."));
     }
   } else {
     if (this.codeOff) {
@@ -65,8 +66,11 @@ RcSwitchAccessory.prototype.setState = function(newState, callback) {
       sendTriStateCode(this.triStateCodeOff);
     } else {
       this.log("Error: Missing OFF code.");
+      return callback(new Error("Error: Missing ON code."));
     }
   }
+
+  return callback(null);
 };
 
 RcSwitchAccessory.prototype.getServices = function() {

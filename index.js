@@ -37,11 +37,11 @@ function RcSwitchAccessory(log, config) {
     );
 }
 
-RcSwitchAccessory.prototype.getState = callback => {
+RcSwitchAccessory.prototype.getState = function(callback) {
   callback(null, this.state);
 };
 
-RcSwitchAccessory.prototype.setState = (newState, callback) => {
+RcSwitchAccessory.prototype.setState = function(newState, callback) {
   this.state = newState;
 
   rc.enableTransmit(this.pin);

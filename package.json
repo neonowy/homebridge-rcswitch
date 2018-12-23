@@ -1,0 +1,15 @@
+{
+  "name": "@neonowy/homebridge-rcswitch",
+  "description": "Homebridge plugin for 433mhz remote control switches, powered by node-rcswitch.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "rcswitch": "git+https://github.com/neonowy/node-rcswitch.git"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["homebridge-plugin"]
+}

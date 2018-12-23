@@ -1,5 +1,5 @@
 {
-  "name": "@neonowy/homebridge-rcswitch",
+  "name": "homebridge-rcswitch-neonowy",
   "description": "Homebridge plugin for 433mhz remote control switches, powered by node-rcswitch.",
   "version": "1.0.0",
   "main": "index.js",

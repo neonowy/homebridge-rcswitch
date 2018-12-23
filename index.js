@@ -72,10 +72,9 @@ RcSwitchAccessory.prototype.setState = (newState, callback) => {
   }
 };
 
-RcSwitchAccessory.prototype.getServices = () => [
-  this.service,
-  this.infoService
-];
+RcSwitchAccessory.prototype.getServices = function() {
+  return [this.service, this.infoService];
+};
 
 module.exports = homebridge => {
   Service = homebridge.hap.Service;

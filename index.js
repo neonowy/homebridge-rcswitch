@@ -52,17 +52,17 @@ RcSwitchAccessory.prototype.setState = (newState, callback) => {
 
   if (this.state) {
     if (this.codeOn) {
-      this.sendCode(this.codeOn);
+      sendCode(this.codeOn);
     } else if (this.triStateCodeOn) {
-      this.sendTriStateCode(this.triStateCodeOn);
+      sendTriStateCode(this.triStateCodeOn);
     } else {
       this.log("Error: Missing ON code.");
     }
   } else {
     if (this.codeOff) {
-      this.sendCode(this.codeOff);
+      sendCode(this.codeOff);
     } else if (this.triStateCodeOff) {
-      this.sendTriStateCode(this.triStateCodeOff);
+      sendTriStateCode(this.triStateCodeOff);
     } else {
       this.log("Error: Missing OFF code.");
     }

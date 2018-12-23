@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "homebridge": ">=0.2.0"
+  },
   "dependencies": {
     "rcswitch": "git+https://github.com/neonowy/node-rcswitch.git"
   },
